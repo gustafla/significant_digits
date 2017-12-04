@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 int isnumber(int c) {
@@ -40,8 +39,8 @@ int count_significant_digits(char const *str) {
 int main(int argc, char *argv[]) {
   if (argc > 1) {
     if (str_isnumber(argv[1])) {
-      printf("Number %f has %d significant digits.\n",
-          atof(argv[1]), count_significant_digits(argv[1]));
+      printf("Number %s has %d significant digits.\n",
+          argv[1], count_significant_digits(argv[1]));
       return 0;
     }
   }

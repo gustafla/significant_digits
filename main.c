@@ -16,11 +16,12 @@ int str_isnumber(char const *str) {
 }
 
 int count_significant_digits(char const *str) {
-  int i, len, heading=1, zerocount=0, count = 0;
+  int i, len, heading=1, decimal=0, zerocount=0, count = 0;
   len = strlen(str);
   for (i = 0; i < len; i++) {
     switch(str[i]) {
       case '.':
+        decimal = 1;
         continue;
       case '0':
         if (!heading) {
@@ -32,6 +33,9 @@ int count_significant_digits(char const *str) {
         count += zerocount + 1;
         zerocount = 0;
     }
+  }
+  if (decimal) {
+    count += zerocount;
   }
   return count;
 }
